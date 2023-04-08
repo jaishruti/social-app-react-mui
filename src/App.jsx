@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { React, useState } from "react";
 import { Add, Settings } from "@mui/icons-material";
-import { Button, createTheme } from "@mui/material";
+import { Button } from "@mui/material";
 // import { styled } from "@emotion/styled";
 import { Box, Stack } from "@mui/material";
 import Sidebar from "./components/Sidebar";
 import Rightbar from "./components/Rightbar";
 import Feed from "./components/Feed";
 import Navbar from "./components/Navbar";
-import ThemeProvider from "@mui/material";
+import {ThemeProvider, createTheme} from "@mui/material/styles";
 
-
-function App() {
+export default function App() {
   const [count, setCount] = useState(0);
   const [mode,setMode] = useState("light")
+  
   const darkTheme = createTheme({
     palette: {
       mode: mode,
@@ -22,7 +22,7 @@ function App() {
   return (
     // <Box>
     //   <Stack direction={"row"} spacing={2} >
-    <ThemeProvider theme={darktheme}>
+    <ThemeProvider theme={darkTheme}>
     <Box>
       <Navbar/>
       <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
@@ -37,4 +37,3 @@ function App() {
   );
 }
 
-export default App;

@@ -17,9 +17,7 @@ import { ExpandMoreRounded, Mail, Notifications } from "@mui/icons-material";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
-  justifyContent: "flex-end",
-  alignItems: "flex-center",
-  marginInline: "40px",
+  justifyContent: "space-between",
 });
 
 const Searchbar = styled("div")(({ theme }) => ({
@@ -31,6 +29,7 @@ const Searchbar = styled("div")(({ theme }) => ({
 
 const Icons = styled("Box")(({ theme }) => ({
   display: "none",
+  justifyContent: "flex-end",
   alignItems: "center",
   gap: "20px",
   [theme.breakpoints.up("sm")]: {
@@ -57,7 +56,7 @@ export default function Navbar() {
 
   return (
     <AppBar position="sticky">
-      <StyledToolbar>
+      <StyledToolbar sx={{justifyContent: "space-between"}}>
         <Typography
           variant="h6"
           sx={{
@@ -65,6 +64,7 @@ export default function Navbar() {
               xs: "none",
               sm: "block",
             },
+          
           }}
         >
           Social App
@@ -81,7 +81,7 @@ export default function Navbar() {
           {" "}
           <InputBase placeholder="search your query....." />{" "}
         </Searchbar>
-        <Icons>
+        <Icons sx={{justifyContent: "end"}}>
           <Badge badgeContent={4} color="error">
             <Mail />
           </Badge>
@@ -103,6 +103,7 @@ export default function Navbar() {
           />
           <Typography variant="span">Alice</Typography>
         </UserBox>
+        </StyledToolbar>
 
         <Menu
           id="fade-menu"
@@ -126,7 +127,6 @@ export default function Navbar() {
           <MenuItem >Logout</MenuItem>
         </Menu>
 
-      </StyledToolbar>
     </AppBar>
   );
 }
