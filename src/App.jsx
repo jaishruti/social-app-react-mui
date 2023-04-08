@@ -8,6 +8,7 @@ import Rightbar from "./components/Rightbar";
 import Feed from "./components/Feed";
 import Navbar from "./components/Navbar";
 import {ThemeProvider, createTheme} from "@mui/material/styles";
+import { theme } from "./theme";
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -26,7 +27,7 @@ export default function App() {
     <Box>
       <Navbar/>
       <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
-        <Sidebar />
+        <Sidebar mode={mode} setMode={setMode}/>
         <Feed />
         <Rightbar />
       </Stack>
